@@ -13,10 +13,10 @@ ALIVE = os.environ.get(
     "ALIVE", "@Ch_World_Music"
 )
 
-CAPTION = f"**سرعة البنك:** {ms}\n المالك:『{ALIVE}』"
+CAPTION = f"**سرعه الـبـنـج:** {ms}\n المالك:『{ALIVE}』"
 
 
 @JE313P.on(events.NewMessage(pattern="^/ping"))
 async def _(event):
-    UMM = [[Button.url("السورس", "https://t.me/JEPTHON")]]
+    UMM = [[Button.url("السورس", "https://t.me/Ch_World_music")]]
     await JE313P.send_file(event.chat_id, IMG, caption=CAPTION, buttons=UMM)
