@@ -512,7 +512,7 @@ async def vc_pause(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="استئناف))
+@JE313P.on(events.NewMessage(pattern="استئناف"))
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
