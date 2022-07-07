@@ -130,7 +130,7 @@ btnn =[
 
 
 #play
-@JE313P.on(events.NewMessage(pattern="شغل","تشغيل"))
+@JE313P.on(events.NewMessage(pattern="تشغيل"))
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
