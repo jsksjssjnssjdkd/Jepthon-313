@@ -240,8 +240,21 @@ async def vc_end(event, perm):
             await event.reply(f"**خطأ:** `{e}`")
     else:
         await event.reply("**تم الغاء التشغيل بنجاح**")
+        
 
-
+@JE313P.on(events.NewMessage(pattern="اسكت"))
+@is_admin
+async def vc_end(event, perm):
+    chat_id = event.chat_id
+    if chat_id in QUEUE:
+        try:
+            await call_py.leave_group_call(chat_id)
+            clear_queue(chat_id)
+            await event.reply("**تم الغاء التشغيل بنجاح**")
+        except Exception as e:
+            await event.reply(f"**خطأ:** `{e}`")
+    else:
+        await event.reply("**تم الغاء التشغيل بنجاح**")
 
 
 
