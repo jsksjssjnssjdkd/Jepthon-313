@@ -130,7 +130,7 @@ btnn =[
 
 
 #play
-@JE313P.on(events.NewMessage(pattern="^[?!/]تشغيل"))
+@JE313P.on(events.NewMessage(pattern="شغل","تشغيل"))
 async def play(event):
     title = ' '.join(event.text[5:])
     replied = await event.get_reply_message()
@@ -227,7 +227,7 @@ async def play(event):
 
 
 #end
-@JE313P.on(events.NewMessage(pattern="^[/?!]انهاء"))
+@JE313P.on(events.NewMessage(pattern="انهاء"))
 @is_admin
 async def vc_end(event, perm):
     chat_id = event.chat_id
@@ -250,15 +250,15 @@ async def vc_end(event, perm):
         try:
             await call_py.leave_group_call(chat_id)
             clear_queue(chat_id)
-            await event.reply("**تم الغاء التشغيل بنجاح**")
+            await event.reply("حاضر هسكت اهو🥲")
         except Exception as e:
             await event.reply(f"**خطأ:** `{e}`")
     else:
-        await event.reply("**تم الغاء التشغيل بنجاح**")
+        await event.reply("مفيش حاجه شغاله عشان اسكت")
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]فيديو"))
+@JE313P.on(events.NewMessage(pattern="تشغيل_فيديو","فيديو"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("- لا يمكنك استخدام هذا الامر لانك تستخدم هيروكو في التنصيب")
@@ -421,7 +421,7 @@ async def vplay(event):
 
 
 #playlist
-@JE313P.on(events.NewMessage(pattern="^[?!/]التشغيل"))
+@JE313P.on(events.NewMessage(pattern="التشغيل"))
 @is_admin
 async def vc_playlist(event, perm):
     chat_id = event.chat_id
@@ -451,7 +451,7 @@ async def vc_playlist(event, perm):
 
 
 #كود المغادرة
-@JE313P.on(events.NewMessage(pattern="^[?!/]مغادرة"))
+@JE313P.on(events.NewMessage(pattern="مغادرة"))
 @is_admin
 async def leavevc(event, perm):
     razan = await event.reply("- يرجى الانتظار قليلا")
@@ -468,7 +468,7 @@ async def leavevc(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]تخطي"))
+@JE313P.on(events.NewMessage(pattern="تخطي"))
 @is_admin
 async def vc_skip(event, perm):
     chat_id = event.chat_id
@@ -497,7 +497,7 @@ async def vc_skip(event, perm):
             await event.reply(DELQUE)
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]ايقاف"))
+@JE313P.on(events.NewMessage(pattern="ايقاف"))
 @is_admin
 async def vc_pause(event, perm):
     chat_id = event.chat_id
@@ -512,7 +512,7 @@ async def vc_pause(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]استئناف"))
+@JE313P.on(events.NewMessage(pattern="استكمال","استئناف"))
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id

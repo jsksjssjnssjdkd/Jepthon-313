@@ -5,18 +5,17 @@ from JE313P.status import *
 LOCKS_HELP = """
 **هذه هي اوامر القفل و الفتح  في الدردشة**
 
-!قفل
+قفل
 لقفل شيء معين في الدردشة
 
-!فتح 
+فتح 
 لفتح الصلاحيات عن شيء معين
 
 الصلاحيات
 لعرض الصلاحيات التي يمكنك قفلها
-[**𖠄 𝗝𝗲𝗽𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𖠄**](https://t.me/JEPTHON)
 """
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]قفل ?(.*)"))
+@JE313P.on(events.NewMessage(pattern="قفل"))
 @is_admin
 async def lock(event, perm):
     if not perm.change_info:
@@ -66,7 +65,7 @@ async def lock(event, perm):
        await event.reply("- تم قفل الكل")
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]فتح ?(.*)"))
+@JE313P.on(events.NewMessage(pattern="فتح"))
 @is_admin
 async def unlock(event, perm):
     if not perm.change_info:
@@ -116,7 +115,7 @@ async def unlock(event, perm):
        await event.reply("تم فتح الكل")
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]الصلاحيات"))
+@JE313P.on(events.NewMessage(pattern="الصلاحيات"))
 async def locktypes(event):
     TEXT = """
 **Locks:**

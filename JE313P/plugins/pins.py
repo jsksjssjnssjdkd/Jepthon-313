@@ -8,22 +8,22 @@ from JE313P import *
 PINS_TEXT = """
 **✘ اوامر تثبيت والغاء التثبيت لرسائل في المجموعة**
 
-‣ `!تثبيت`
+‣ `تثبيت`
 بالرد على الرسالة التي تريد تثبيتها
 
-‣ `!الغاء تثبيت`
+‣ `الغاء تثبيت`
 بالرد على الرسالت التي تريد الغاء تثبيتها
 
-‣ `!الغاء التثبيت للكل`
+‣ `الغاء التثبيت للكل`
 لالغاء تثبيبت جميع الرسائل في المجموعة
 
-‣ `!الرسائل المثبتة`
+‣ `الرسائل المثبتة`
 لأظهار الرسائل المثبتة في المجموعة
 
-[**𖠄 𝗝𝗲𝗽𝘁𝗵𝗼𝗻 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𖠄**](https://t.me/JEPTHON)
+@Ch_World_Music
 """
 
-@JE313P.on(events.NewMessage(pattern="^[?!/]الرسائل المثبتة"))
+@JE313P.on(events.NewMessage(pattern="الرسائل المثبتة"))
 async def get_pinned(event):
     chat_id = (str(event.chat_id)).replace("-100", "")
 
@@ -31,7 +31,7 @@ async def get_pinned(event):
     tem = f"الرسائل المثبتة في الدردشة{event.chat.title} هي <a href=https://t.me/c/{chat_id}/{Ok.id}>here</a>."
     await event.reply(tem, parse_mode="html", link_preview=False)
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]تثبيت ?(.*)"))
+@JE313P.on(events.NewMessage(pattern="تثبيت"))
 @is_admin
 async def pin(event, perm):
     if not perm.pin_messages:
@@ -47,7 +47,7 @@ async def pin(event, perm):
        return
     await JE313P.pin_message(event.chat_id, msg)   
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]الغاء تثبيت ?(.*)"))
+@JE313P.on(events.NewMessage(pattern="الغاء تثبيت"))
 @is_admin
 async def unpin(event, perm):
     if not perm.pin_messages:
@@ -59,7 +59,7 @@ async def unpin(event, perm):
     await event.reply(f"تم بنجاح الغاء التثبيت [لهذه الرسالة](t.me/{event.chat.username}/{ok.id}).", link_preview=False)
 
 
-@JE313P.on(events.NewMessage(pattern="^[!?/]الغاء التثبيت للكل$"))
+@JE313P.on(events.NewMessage(pattern="الغاء التثبيت للكل"))
 async def unpinall(event, perm):
     if not perm.pin_messages:
        await event.reply("يجب ان تمتلك صلاحيات التثببيت اولا")

@@ -11,7 +11,7 @@ btn =[
 HELP_TEXT = "اهلا بك في قائمة اوامر سورس جيبثون\n\nاضغط على الازرار من الاسفل:"
 
 
-@JE313P.on(events.NewMessage(pattern="[!?/]الاوامر"))
+@JE313P.on(events.NewMessage(pattern="الاوامر"))
 async def help(event):
 
     if event.is_group:
