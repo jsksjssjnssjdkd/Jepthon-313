@@ -226,7 +226,6 @@ async def play(event):
 @JE313P.on(events.NewMessage(pattern="انهاء"))
 @is_admin
 async def vc_end(event, perm):
-    await perm.delete()
     chat_id = event.chat_id
     if chat_id in QUEUE:
         try:
@@ -242,7 +241,6 @@ async def vc_end(event, perm):
 @JE313P.on(events.NewMessage(pattern="اسكت"))
 @is_admin
 async def vc_end(event, perm):
-    await perm.delete()
     chat_id = event.chat_id
     if chat_id in QUEUE:
         try:
