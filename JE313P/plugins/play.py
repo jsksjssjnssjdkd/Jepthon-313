@@ -258,7 +258,7 @@ async def vc_end(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="تشغيل_فيديو","فيديو"))
+@JE313P.on(events.NewMessage(pattern="فيديو"))
 async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("- لا يمكنك استخدام هذا الامر لانك تستخدم هيروكو في التنصيب")
@@ -512,7 +512,7 @@ async def vc_pause(event, perm):
 
 
 
-@JE313P.on(events.NewMessage(pattern="استكمال","استئناف"))
+@JE313P.on(events.NewMessage(pattern="استئناف))
 @is_admin
 async def vc_resume(event, perm):
     chat_id = event.chat_id
