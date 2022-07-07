@@ -260,7 +260,7 @@ async def vplay(event):
     if Config.HEROKU_MODE == "ENABLE":
         await event.reply("- لا يمكنك استخدام هذا الامر لانك تستخدم هيروكو في التنصيب")
         return
-    title =    .join(event.text[6:])
+    title = ' '.join(event.text[6:])
     replied = await event.get_reply_message()
     sender = await event.get_sender()
     userid = sender.id
